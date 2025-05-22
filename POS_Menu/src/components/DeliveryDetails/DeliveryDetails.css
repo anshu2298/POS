@@ -1,0 +1,41 @@
+.delivery-details {
+  border-top: 1px solid #e5e7eb;
+  padding: 16px 0;
+}
+
+.address-container,
+.time-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.time-container {
+  margin-bottom: 0;
+}
+
+.icon-container {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.icon-container.location {
+  color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.icon-container.time {
+  color: #7c3aed;
+  background-color: rgba(124, 58, 237, 0.1);
+}
+
+.delivery-details p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}

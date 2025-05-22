@@ -1,0 +1,18 @@
+.user-details {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+  margin-bottom: 16px;
+}
+
+.user-details h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.user-details p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}

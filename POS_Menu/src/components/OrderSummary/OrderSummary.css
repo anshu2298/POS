@@ -1,0 +1,33 @@
+.order-summary {
+  margin: 24px 0;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #666;
+}
+
+.summary-label {
+  font-weight: 400;
+}
+
+.summary-value {
+  font-weight: 500;
+}
+
+.grand-total {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.grand-total .summary-label,
+.grand-total .summary-value {
+  font-weight: 600;
+}
