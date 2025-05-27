@@ -1,0 +1,17 @@
+.footer {
+  min-width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+.button {
+  min-width: 30%;
+  padding: 15px 0px;
+  border-radius: 25px;
+  margin: 10px 35px 25px 0;
+  background-color: #505050;
+  color: white;
+  cursor: pointer;
+  font-size: large;
+}

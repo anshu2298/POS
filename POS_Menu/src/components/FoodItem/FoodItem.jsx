@@ -15,14 +15,16 @@ const FoodItem = ({
         className='food-image'
       />
       <div className='food-details'>
-        <h3 className='food-name'>{name}</h3>
-        <p className='food-price'>₹ {price}</p>
+        <div className='food-text'>
+          <h3 className='food-name'>{name}</h3>
+          <p className='food-price'>₹ {price}</p>
+        </div>
         <button
           className='add-button'
           onClick={() => onAddToCart(id)}
           aria-label={`Add ${name} to cart`}
         >
-          <Plus size={25} />
+          <Plus size={30} />
         </button>
       </div>
     </div>

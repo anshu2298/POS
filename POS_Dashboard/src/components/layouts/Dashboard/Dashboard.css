@@ -1,0 +1,48 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  overflow-y: auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.filter-box {
+  width: 35%;
+  height: 55px;
+  border-radius: 50px;
+}
+
+.filter-input {
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #b9b8be;
+  font-size: 18px;
+  padding-left: 25px;
+}
+
+.filter-icon {
+  padding: 10px;
+  color: #b9b8be;
+}
+
+.dashboard {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.dashboard::-webkit-scrollbar {
+  display: none;
+}

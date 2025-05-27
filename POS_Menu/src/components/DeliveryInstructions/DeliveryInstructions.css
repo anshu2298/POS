@@ -1,0 +1,23 @@
+.cart-item-note input {
+  margin: 0 16px;
+  width: 75%;
+  border: none;
+  font-size: 14px;
+  color: #666;
+  padding: 8px 0;
+  outline: none;
+  border-bottom: 2px dotted #666;
+  transition: border-color 0.2s ease;
+}
+
+/* .cart-item-note {
+  border-bottom: dotted 2px #666;
+} */
+
+.cart-item-note input:focus {
+  border-bottom-color: #d1d5db;
+}
+
+.cart-item-note input::placeholder {
+  color: #9ca3af;
+}

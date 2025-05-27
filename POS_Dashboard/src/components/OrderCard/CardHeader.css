@@ -1,0 +1,89 @@
+.order-card-header {
+  min-height: fit-content;
+  background-color: white;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.icon-number {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cutlery-icon {
+  width: 20px;
+  height: 20px;
+  color: #0066cc;
+}
+
+.order-number {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.table-time {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.table-number,
+.order-time {
+  margin: 0;
+}
+
+.item-count {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 0 0;
+  color: #333;
+}
+
+.service-badge {
+  padding: 12px 12px;
+  border-radius: 20px;
+  text-align: center;
+  min-width: 110px;
+}
+
+.service-badge.ongoing {
+  background-color: #ffd9a8;
+  color: #b36000;
+}
+
+.service-badge.served {
+  background-color: #a8ffba;
+  color: #007020;
+}
+
+.service-badge.take-away {
+  background-color: #b3c5d1;
+  color: #364958;
+}
+
+.service-type {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.status-label {
+  font-size: 12px;
+  margin: 4px 0 0;
+}

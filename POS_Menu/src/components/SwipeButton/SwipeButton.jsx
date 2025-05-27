@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import "./SwipeButton.css";
 
 const SwipeButton = ({ onComplete }) => {
@@ -35,7 +35,6 @@ const SwipeButton = ({ onComplete }) => {
 
     setPosition(newPosition);
 
-    // Check if swiped far enough to trigger
     if (
       newPosition >
       containerWidth.current - buttonWidth.current - 20

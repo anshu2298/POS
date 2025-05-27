@@ -1,0 +1,76 @@
+.analytics-section {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.analytics-card {
+  background-color: #f0f5f3;
+  border-radius: 0.75rem;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid #d9d9d9;
+}
+
+.analytics-card-icon {
+  background-color: #def0ff;
+  width: 68px;
+  height: 48px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 16px;
+}
+
+.analytics-card-blue .analytics-card-icon {
+  background-color: #eef5ff;
+  color: #3a86ff;
+}
+
+.analytics-card-green .analytics-card-icon {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.analytics-card-orange .analytics-card-icon {
+  background-color: #fff8e1;
+  color: #ffc107;
+}
+
+.analytics-card-purple .analytics-card-icon {
+  background-color: #f3e8ff;
+  color: #9333ea;
+}
+
+.analytics-card-content {
+  flex: 1;
+}
+
+.analytics-card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.analytics-card-title {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+}

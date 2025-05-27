@@ -1,0 +1,168 @@
+.page-title {
+  font-size: 40px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+}
+
+.tablepage-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+}
+
+.tablepage-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.table-box {
+  position: relative;
+  width: 100%;
+  background-color: #f0f5f3;
+  border-radius: 0.75rem;
+  border: 1px solid #d9d9d9;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+}
+
+.tablebox-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.tablebox-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.tablebox-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.tablebox-label {
+  font-size: 25px;
+  color: black;
+  font-weight: 550;
+}
+
+.tablebox-number {
+  font-size: 40px;
+  font-weight: 600;
+  color: black;
+}
+
+.add-table-card {
+  background-color: white;
+  border: 2px dashed #d9d9d9;
+  border-radius: 0.75rem;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  min-height: 150px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.add-table-modal {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.add-table-modal h2 {
+  margin: 0 0 16px 0;
+  font-size: 1.25rem;
+  color: #1e293b;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modal-actions button {
+  padding: 8px 16px;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  background-color: #f0f2f5;
+  border: none;
+  color: #334155;
+}
+
+.modal-actions button:last-child {
+  background-color: #1e293b;
+  border: none;
+  color: white;
+}
+
+.tablepage-card {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tablepage-card::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,18 @@
+.revenue-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  height: 100%;
+  border: solid #d9d9d9;
+  background-color: #f0f5f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.graph-container {
+  margin: 10px 10px 20px 10px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 12px;
+  border: solid #d9d9d9;
+}

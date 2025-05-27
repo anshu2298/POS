@@ -1,16 +1,24 @@
 .header {
-  margin-bottom: 24px;
+  padding: 16px 16px;
 }
 
 .greeting {
-  font-size: 24px;
+  font-size: 35px;
   font-weight: 600;
   color: var(--primary);
   margin-bottom: 4px;
 }
 
+.greeting-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-right: 10px;
+}
+
 .subtitle {
-  font-size: 16px;
+  font-size: 20px;
   color: var(--secondary);
   margin-bottom: 16px;
   font-weight: 400;
@@ -42,4 +50,8 @@
 
 .search-input:focus {
   background-color: #e9e9eb;
+}
+
+.nav-icon {
+  cursor: pointer;
 }

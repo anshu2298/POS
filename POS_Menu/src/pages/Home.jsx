@@ -8,11 +8,12 @@ import Header from "../components/Header/Header";
 import { useCart } from "../context/CartContext";
 import FoodSection from "../components/FoodSection/FoodSection";
 import { CategoryTabs } from "../components/CategoryTabs/CategoryTabs";
+import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   const [searchItem, setSearchItem] = useState("");
   const [activeCategory, setActiveCategory] =
-    useState("all");
+    useState("pizza");
 
   const { addToCart } = useCart();
 
@@ -44,6 +45,7 @@ const Home = () => {
           items={foodItems}
           onAddToCart={addToCart}
         />
+        <Footer />
       </div>
     </div>
   );

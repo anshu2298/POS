@@ -15,8 +15,10 @@
 
 .food-details {
   padding: 12px;
-  position: relative;
   min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .food-name {
@@ -34,9 +36,6 @@
 }
 
 .add-button {
-  position: absolute;
-  right: 12px;
-  bottom: 30px;
   width: 24px;
   height: 24px;
   border-radius: 6px;

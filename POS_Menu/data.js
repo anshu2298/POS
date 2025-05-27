@@ -51,7 +51,7 @@ export const menuData = {
       name: "Vegetarian",
       price: 200,
       image:
-        "https://images.pexels.com/photos/5639767/pexels-photo-5639767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://www.goodlifeeats.com/wp-content/uploads/2022/06/Vegetarian-Pizza-720x540.jpg",
       category: "pizza",
     },
   ],
@@ -195,7 +195,7 @@ export const defaultCategories = [
   },
   {
     id: "fries",
-    label: "French fries",
+    label: "Fries",
     icon: CiFries,
   },
   {
@@ -225,4 +225,8 @@ export function searchMenuItems(query) {
 
 export function getMenuItemById(id) {
   return getAllMenuItems().find((item) => item.id === id);
+}
+
+export function getFirstThreeMenuItems() {
+  return Object.values(menuData).flat().slice(0, 2);
 }

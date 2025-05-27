@@ -1,0 +1,30 @@
+.orders {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.orders-card {
+  flex: 1; /* fills remaining height after h2 */
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  min-height: 300px; /* keeps white card visible even with 1 item */
+}
+
+.orders-card {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.orders-card::-webkit-scrollbar {
+  display: none;
+}

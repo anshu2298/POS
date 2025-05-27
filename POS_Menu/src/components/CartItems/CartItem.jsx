@@ -1,27 +1,16 @@
-import { useState } from "react";
 import "./CartItem.css";
-
+import { IoCloseCircle } from "react-icons/io5";
 const CartItem = ({ item, onQuantityChange, onRemove }) => {
   const { id, name, price, image, size } = item;
-  const [quantity, setQuantity] = useState(1);
-  const [note, setNote] = useState("");
 
   const handleIncrement = () => {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-    onQuantityChange(id, newQuantity);
+    onQuantityChange(id, item.quantity + 1);
   };
 
   const handleDecrement = () => {
-    if (quantity > 1) {
-      const newQuantity = quantity - 1;
-      setQuantity(newQuantity);
-      onQuantityChange(id, newQuantity);
+    if (item.quantity > 1) {
+      onQuantityChange(id, item.quantity - 1);
     }
-  };
-
-  const handleNoteChange = (e) => {
-    setNote(e.target.value);
   };
 
   return (
@@ -45,35 +34,7 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
             className='remove-button'
             onClick={() => onRemove(id)}
           >
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='20'
-              height='20'
-              viewBox='0 0 24 24'
-              fill='none'
-              stroke='currentColor'
-              strokeWidth='2'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-            >
-              <circle
-                cx='12'
-                cy='12'
-                r='10'
-              ></circle>
-              <line
-                x1='15'
-                y1='9'
-                x2='9'
-                y2='15'
-              ></line>
-              <line
-                x1='9'
-                y1='9'
-                x2='15'
-                y2='15'
-              ></line>
-            </svg>
+            <IoCloseCircle size={30} />
           </button>
         </div>
 
@@ -87,7 +48,9 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
             >
               −
             </button>
-            <span className='quantity'>{quantity}</span>
+            <span className='quantity'>
+              {item.quantity}
+            </span>
             <button
               className='quantity-button'
               onClick={handleIncrement}
@@ -95,15 +58,6 @@ const CartItem = ({ item, onQuantityChange, onRemove }) => {
               +
             </button>
           </div>
-        </div>
-
-        <div className='cart-item-note'>
-          <input
-            type='text'
-            placeholder='Add cooking instructions (optional)'
-            value={note}
-            onChange={handleNoteChange}
-          />
         </div>
       </div>
     </div>
