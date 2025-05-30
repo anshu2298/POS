@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import {
   LineChart,
@@ -12,69 +12,54 @@ import {
 } from "recharts";
 import "./RevenueChart.css";
 
-const RevenueChart = ({ timeFilter, onFilterChange }) => {
-  const [isDropdownOpen, setIsDropdownOpen] =
-    useState(false);
+const weekdays = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+];
 
-  // Mock data - in a real app, this would be fetched based on the timeFilter
-  const revenueData = [
-    { name: "Mon", revenue: 1200 },
-    { name: "Tue", revenue: 1900 },
-    { name: "Wed", revenue: 1500 },
-    { name: "Thu", revenue: 5400 },
-    { name: "Fri", revenue: 3200 },
-    { name: "Sat", revenue: 2800 },
-    { name: "Sun", revenue: 2100 },
-  ];
+const RevenueChart = ({ orders }) => {
+  const [revenueData, setRevenueData] = useState([]);
+  // const [isDropdownOpen, setIsDropdownOpen] =
+  //   useState(false);
 
-  const toggleDropdown = () =>
-    setIsDropdownOpen(!isDropdownOpen);
+  useEffect(() => {
+    const fetchRevenue = async (orders) => {
+      const revenueMap = {
+        Sun: 0,
+        Mon: 0,
+        Tue: 0,
+        Wed: 0,
+        Thu: 0,
+        Fri: 0,
+        Sat: 0,
+      };
 
-  const selectFilter = (filter) => {
-    onFilterChange(filter);
-    setIsDropdownOpen(false);
-  };
+      orders.forEach((order) => {
+        const day = new Date(order.createdAt).getDay();
+        const weekday = weekdays[day];
+        revenueMap[weekday] += Number(order.price);
+      });
+
+      const chartData = weekdays.map((day) => ({
+        name: day,
+        revenue: revenueMap[day],
+      }));
+
+      setRevenueData(chartData);
+    };
+
+    fetchRevenue(orders);
+  }, [orders]);
 
   return (
-    <section className='revenue-card '>
+    <section className='revenue-card'>
       <div className='card-header'>
         <h2 className='card-title'>Revenue</h2>
-
-        <div className='filter-dropdown'>
-          <button
-            className='filter-button'
-            onClick={toggleDropdown}
-            aria-haspopup='true'
-            aria-expanded={isDropdownOpen}
-          >
-            {timeFilter === "daily"
-              ? "Daily"
-              : timeFilter === "weekly"
-              ? "Weekly"
-              : timeFilter === "monthly"
-              ? "Monthly"
-              : "Daily"}
-            <RiArrowDownSLine />
-          </button>
-
-          {isDropdownOpen && (
-            <div className='dropdown-menu'>
-              <button onClick={() => selectFilter("daily")}>
-                Daily
-              </button>
-              <button
-                onClick={() => selectFilter("weekly")}
-              >
-                Weekly
-              </button>
-              <button
-                onClick={() => selectFilter("monthly")}
-              >
-                Monthly
-              </button>
-            </div>
-          )}
-        </div>
       </div>
 
       <div className='graph-container'>

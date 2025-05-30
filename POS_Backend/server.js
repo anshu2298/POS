@@ -1,14 +1,48 @@
-const http = require("http");
+require("dotenv").config();
+require("express-async-errors");
+const express = require("express");
+const connectDB = require("./config/db.js");
+const cors = require("cors");
+const port = process.env.PORT;
+const url = process.env.DB_URI;
+const customerRoutes = require("./Routes/customerRoutes.js");
+const OrderRoutes = require("./Routes/orderRoutes.js");
+const TableRoutes = require("./Routes/tableRoutes.js");
+const app = express();
 
-const PORT = 3000;
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+app.use(express.json());
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello, world!\n");
+app.get("/", (req, res) => {
+  res.send("Api is working");
 });
 
-server.listen(PORT, () => {
-  console.log(
-    `Server running at http://localhost:${PORT}/`
-  );
-});
+app.use("/api/customer", customerRoutes);
+
+app.use("/api/order", OrderRoutes);
+
+app.use("/api/table", TableRoutes);
+
+const start = async () => {
+  try {
+    connectDB(url).then(() => {
+      console.log("Connected to DB....");
+    });
+    app.listen(
+      port,
+      console.log(
+        `Server is running on port: http://localhost:${port}`
+      )
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+start();

@@ -7,7 +7,7 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [tableNumber, setTableNumber] = useState("");
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = {
@@ -15,10 +15,10 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
       phoneNumber,
       address: orderOption === "take-away" ? address : "",
       tableNumber:
-        orderOption === "dine-in" ? tableNumber : "",
+        orderOption === "dine-in" ? tableNumber : null,
     };
-    console.log("User Details (local log):", formData);
     onFormSubmit(formData);
+    setIsSubmitted(true);
   };
 
   return (
@@ -36,6 +36,7 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              disabled={isSubmitted}
             />
           </div>
           <div className='phone-input'>
@@ -47,6 +48,7 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
               onChange={(e) =>
                 setPhoneNumber(e.target.value)
               }
+              disabled={isSubmitted}
               required
               maxLength='10'
             />
@@ -57,6 +59,7 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
                 name='address'
                 placeholder='Address'
                 value={address}
+                disabled={isSubmitted}
                 onChange={(e) => setAddress(e.target.value)}
                 required
               />
@@ -68,6 +71,7 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
                 placeholder='Table Number'
                 value={tableNumber}
                 type='number'
+                disabled={isSubmitted}
                 onChange={(e) =>
                   setTableNumber(e.target.value)
                 }
@@ -79,6 +83,7 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
         <div className='button-row'>
           <button
             type='submit'
+            disabled={isSubmitted}
             className='submit-button'
           >
             <IoIosSave />

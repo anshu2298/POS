@@ -8,7 +8,7 @@ import { useTables } from "../../../context/TablesContext";
 
 const Tables = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { tables, setTables } = useTables();
+  const { tables, addTable, deleteTable } = useTables();
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [newTable, setNewTable] = useState({
@@ -22,35 +22,25 @@ const Tables = () => {
       .includes(searchQuery.toLowerCase())
   );
 
-  const handleAddTable = (e) => {
+  const handleAddTable = async (e) => {
     e.preventDefault();
-    const nextId = tables.length + 1;
-    const tableName = newTable.name.trim()
-      ? newTable.name
-      : String(nextId).padStart(2, "0");
+
+    const nextName =
+      newTable.name.trim() ||
+      String(tables.length + 1).padStart(2, "0");
 
     const newTableEntry = {
-      id: nextId,
-      name: tableName,
+      name: nextName,
       chairs: newTable.chairs.toString().padStart(2, "0"),
     };
 
-    setTables([...tables, newTableEntry]);
+    await addTable(newTableEntry);
     setShowAddForm(false);
     setNewTable({ name: "", chairs: "02" });
   };
 
-  const handleDeleteTable = (idToDelete) => {
-    const filtered = tables.filter(
-      (table) => table.id !== idToDelete
-    );
-
-    const updatedTables = filtered.map((table, index) => ({
-      ...table,
-      id: index + 1,
-    }));
-
-    setTables(updatedTables);
+  const handleDeleteTable = async (id) => {
+    await deleteTable(id);
   };
 
   return (
@@ -74,7 +64,7 @@ const Tables = () => {
         <div className='tablepage-grid'>
           {filteredTables.map((table) => (
             <div
-              key={table.id}
+              key={table._id}
               className='table-box'
             >
               <div className='tablebox-header'>
@@ -82,7 +72,7 @@ const Tables = () => {
                   size={20}
                   className='delete-icon'
                   onClick={() =>
-                    handleDeleteTable(table.id)
+                    handleDeleteTable(table._id)
                   }
                 />
               </div>

@@ -4,17 +4,7 @@ import "./TableReservation.css";
 import { useTables } from "../../context/TablesContext";
 
 const TableReservation = () => {
-  const { tables, setTables } = useTables();
-
-  const toggleReservation = (id) => {
-    setTables(
-      tables.map((table) =>
-        table.id === id
-          ? { ...table, reserved: !table.reserved }
-          : table
-      )
-    );
-  };
+  const { tables } = useTables();
 
   return (
     <section className='table-card'>
@@ -25,10 +15,9 @@ const TableReservation = () => {
       <div className='tables-grid'>
         {tables.map((table) => (
           <Table
-            key={table.id}
+            key={table._id}
             number={table.name || table.number}
             reserved={table.reserved}
-            onClick={() => toggleReservation(table.id)}
           />
         ))}
       </div>

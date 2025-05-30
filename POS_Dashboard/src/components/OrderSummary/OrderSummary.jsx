@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import "./OrderSummary.css";
-
 import { Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -12,21 +11,19 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const OrderSummary = ({ timeFilter, onFilterChange }) => {
+const OrderSummary = ({
+  orderStats,
+  setTimeFilter,
+  timeFilter,
+}) => {
   const [isDropdownOpen, setIsDropdownOpen] =
     useState(false);
-
-  const orderStats = [
-    { type: "Served", count: 9, percentage: 47 },
-    { type: "Dine In", count: 5, percentage: 26 },
-    { type: "Take Away", count: 6, percentage: 27 },
-  ];
 
   const toggleDropdown = () =>
     setIsDropdownOpen(!isDropdownOpen);
 
   const selectFilter = (filter) => {
-    onFilterChange(filter);
+    setTimeFilter(filter);
     setIsDropdownOpen(false);
   };
 

@@ -60,6 +60,7 @@ const OrderCard = ({
         serviceType={serviceType}
         statusLabel={statusInfo.label}
         statusType={statusInfo.type}
+        count={items.length}
       />
 
       <OrderItems items={items} />

@@ -10,6 +10,7 @@ export const menuData = {
       id: "pizza-1",
       name: "Capricciosa",
       price: 200,
+      duration: 20,
       image:
         "https://images.pexels.com/photos/2608049/pexels-photo-2608049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "pizza",
@@ -18,6 +19,7 @@ export const menuData = {
       id: "pizza-2",
       name: "Sicilian",
       price: 150,
+      duration: 18,
       image:
         "https://images.pexels.com/photos/2762942/pexels-photo-2762942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "pizza",
@@ -26,6 +28,7 @@ export const menuData = {
       id: "pizza-3",
       name: "Marinara",
       price: 90,
+      duration: 15,
       image:
         "https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "pizza",
@@ -34,6 +37,7 @@ export const menuData = {
       id: "pizza-4",
       name: "Pepperoni",
       price: 300,
+      duration: 22,
       image:
         "https://images.pexels.com/photos/4109111/pexels-photo-4109111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "pizza",
@@ -42,6 +46,7 @@ export const menuData = {
       id: "pizza-5",
       name: "Margherita",
       price: 200,
+      duration: 17,
       image:
         "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "pizza",
@@ -50,6 +55,7 @@ export const menuData = {
       id: "pizza-6",
       name: "Vegetarian",
       price: 200,
+      duration: 19,
       image:
         "https://www.goodlifeeats.com/wp-content/uploads/2022/06/Vegetarian-Pizza-720x540.jpg",
       category: "pizza",
@@ -60,6 +66,7 @@ export const menuData = {
       id: "burger-1",
       name: "Classic Burger",
       price: 150,
+      duration: 12,
       image:
         "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "burger",
@@ -68,6 +75,7 @@ export const menuData = {
       id: "burger-2",
       name: "Cheese Burger",
       price: 180,
+      duration: 14,
       image:
         "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "burger",
@@ -76,6 +84,7 @@ export const menuData = {
       id: "burger-3",
       name: "Double Patty",
       price: 220,
+      duration: 16,
       image:
         "https://images.pexels.com/photos/3738755/pexels-photo-3738755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "burger",
@@ -84,6 +93,7 @@ export const menuData = {
       id: "burger-4",
       name: "Chicken Burger",
       price: 190,
+      duration: 13,
       image:
         "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "burger",
@@ -94,6 +104,7 @@ export const menuData = {
       id: "drink-1",
       name: "Cola",
       price: 50,
+      duration: 2,
       image:
         "https://images.pexels.com/photos/2983100/pexels-photo-2983100.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "drink",
@@ -102,6 +113,7 @@ export const menuData = {
       id: "drink-2",
       name: "Orange Juice",
       price: 70,
+      duration: 4,
       image:
         "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "drink",
@@ -110,6 +122,7 @@ export const menuData = {
       id: "drink-3",
       name: "Iced Tea",
       price: 60,
+      duration: 3,
       image:
         "https://images.pexels.com/photos/792613/pexels-photo-792613.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "drink",
@@ -118,6 +131,7 @@ export const menuData = {
       id: "drink-4",
       name: "Mineral Water",
       price: 40,
+      duration: 1,
       image:
         "https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "drink",
@@ -128,6 +142,7 @@ export const menuData = {
       id: "fries-1",
       name: "Classic Fries",
       price: 80,
+      duration: 10,
       image:
         "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "fries",
@@ -136,6 +151,7 @@ export const menuData = {
       id: "fries-2",
       name: "Cheese Fries",
       price: 100,
+      duration: 12,
       image:
         "https://images.pexels.com/photos/115740/pexels-photo-115740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "fries",
@@ -144,6 +160,7 @@ export const menuData = {
       id: "fries-3",
       name: "Loaded Fries",
       price: 120,
+      duration: 13,
       image:
         "https://images.pexels.com/photos/2741461/pexels-photo-2741461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "fries",
@@ -154,6 +171,7 @@ export const menuData = {
       id: "veggies-1",
       name: "Garden Salad",
       price: 110,
+      duration: 8,
       image:
         "https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "veggies",
@@ -162,6 +180,7 @@ export const menuData = {
       id: "veggies-2",
       name: "Greek Salad",
       price: 130,
+      duration: 9,
       image:
         "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "veggies",
@@ -170,6 +189,7 @@ export const menuData = {
       id: "veggies-3",
       name: "Grilled Vegetables",
       price: 150,
+      duration: 14,
       image:
         "https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       category: "veggies",

@@ -7,6 +7,7 @@ const CardHeader = ({
   serviceType,
   statusLabel,
   statusType,
+  count,
 }) => {
   return (
     <div className='order-card-header'>
@@ -24,7 +25,7 @@ const CardHeader = ({
           </p>
           <p className='order-time'>{time}</p>
         </div>
-        <p className='item-count'>3 Item</p>
+        <p className='item-count'>{`${count} Items`}</p>
       </div>
 
       <div className={`service-badge ${statusType}`}>
