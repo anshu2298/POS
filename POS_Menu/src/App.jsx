@@ -5,10 +5,11 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
-
+import { Toaster } from "react-hot-toast";
 const App = () => {
   return (
     <Router>
+      <Toaster />
       <Routes>
         <Route
           path='/'

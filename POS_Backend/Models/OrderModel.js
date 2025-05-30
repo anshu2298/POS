@@ -13,7 +13,7 @@ const orderSchema = new mongoose.Schema(
       required: true,
     },
     tableNumber: {
-      type: Number,
+      type: String,
       default: null,
     },
     time: {

@@ -1,10 +1,10 @@
-import React from "react";
 import "./OrderSummary.css";
 
 const OrderSummary = ({
   subtotal,
   deliveryCharge,
   taxes,
+  orderOption,
 }) => {
   const grandTotal = subtotal + deliveryCharge + taxes;
 
@@ -16,15 +16,16 @@ const OrderSummary = ({
           ₹{subtotal.toFixed(2)}
         </span>
       </div>
-
-      <div className='summary-row'>
-        <span className='summary-label'>
-          Delivery Charge
-        </span>
-        <span className='summary-value'>
-          ₹{deliveryCharge.toFixed(2)}
-        </span>
-      </div>
+      {orderOption === "take-away" && (
+        <div className='summary-row'>
+          <span className='summary-label'>
+            Delivery Charge
+          </span>
+          <span className='summary-value'>
+            ₹{deliveryCharge.toFixed(2)}
+          </span>
+        </div>
+      )}
 
       <div className='summary-row'>
         <span className='summary-label'>Taxes</span>

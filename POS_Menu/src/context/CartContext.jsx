@@ -1,24 +1,13 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useState } from "react";
 import { getAllMenuItems } from "../../data";
+import toast from "react-hot-toast";
 
-// Create context
 const CartContext = createContext();
 
-// Custom hook (optional but clean)
 export const useCart = () => useContext(CartContext);
 
-// Provider component
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    console.log("🧺 Cart items updated:", cartItems);
-  }, [cartItems]);
 
   const addToCart = (id) => {
     setCartItems((prevItems) => {
@@ -26,6 +15,7 @@ export const CartProvider = ({ children }) => {
         (item) => item.id === id
       );
       if (isAlreadyInCart) {
+        toast.success("Increased quantity");
         return prevItems.map((item) =>
           item.id === id
             ? { ...item, quantity: item.quantity + 1 }
@@ -35,6 +25,7 @@ export const CartProvider = ({ children }) => {
         const itemToAdd = getAllMenuItems().find(
           (item) => item.id === id
         );
+        toast.success("Item added to cart");
         return [
           ...prevItems,
           { ...itemToAdd, quantity: 1 },
@@ -44,9 +35,11 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (id) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.id !== id)
-    );
+    setCartItems((prevItems) => {
+      const item = prevItems.find((item) => item.id === id);
+      if (item) toast.error("Item removed from cart");
+      return prevItems.filter((item) => item.id !== id);
+    });
   };
 
   return (

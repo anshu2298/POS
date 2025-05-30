@@ -1,12 +1,13 @@
 import "./UserDetails.css";
 import { IoIosSave } from "react-icons/io";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const UserDetails = ({ orderOption, onFormSubmit }) => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
-  const [tableNumber, setTableNumber] = useState("");
+  const [occupancy, setOccupancy] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,10 +15,11 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
       name,
       phoneNumber,
       address: orderOption === "take-away" ? address : "",
-      tableNumber:
-        orderOption === "dine-in" ? tableNumber : null,
+      occupancy:
+        orderOption === "dine-in" ? occupancy : null,
     };
     onFormSubmit(formData);
+    toast.success("User details saved!");
     setIsSubmitted(true);
   };
 
@@ -68,12 +70,12 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
             <div className='input'>
               <input
                 name='tableNumber'
-                placeholder='Table Number'
-                value={tableNumber}
+                placeholder='Table for'
+                value={occupancy}
                 type='number'
                 disabled={isSubmitted}
                 onChange={(e) =>
-                  setTableNumber(e.target.value)
+                  setOccupancy(e.target.value)
                 }
                 required
               />
