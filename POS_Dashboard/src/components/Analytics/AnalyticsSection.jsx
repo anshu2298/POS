@@ -5,6 +5,7 @@ import { FaIndianRupeeSign } from "react-icons/fa6";
 import { LuContactRound } from "react-icons/lu";
 import { IoMdContacts } from "react-icons/io";
 import { useEffect, useState } from "react";
+import { API_PATHS } from "../../utils/apiPaths";
 
 const AnalyticsSection = ({ orders, clients }) => {
   const [totalClients, setTotalClients] = useState(0);
@@ -44,7 +45,7 @@ const AnalyticsSection = ({ orders, clients }) => {
 
   useEffect(() => {
     fetchAndCalculateRevenue(
-      "http://localhost:3000/api/order/get",
+      API_PATHS.ORDERS.GET,
       setTotalRevenue
     );
   }, []);
