@@ -1,7 +1,7 @@
 import "./StatusButton.css";
 import { BsFillPatchCheckFill } from "react-icons/bs";
 import { FaHourglassEnd } from "react-icons/fa";
-const StatusButton = ({ status, serviceType }) => {
+const StatusButton = ({ status }) => {
   const getButtonConfig = () => {
     if (status === "Processing") {
       return {
@@ -21,7 +21,7 @@ const StatusButton = ({ status, serviceType }) => {
   const { text, className, icon } = getButtonConfig();
 
   return (
-    <button className={className}>
+    <div className={className}>
       <span className='button-text'>{text}</span>
       {icon === "hourglass" && (
         <span className='icon hourglass'>
@@ -33,7 +33,7 @@ const StatusButton = ({ status, serviceType }) => {
           <BsFillPatchCheckFill />
         </span>
       )}
-    </button>
+    </div>
   );
 };
 

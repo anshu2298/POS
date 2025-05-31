@@ -31,7 +31,13 @@ const CardHeader = ({
 
       <div className={`service-badge ${statusType}`}>
         <p className='service-type'>{serviceType}</p>
-        <p className='status-label'>{remainingTime}</p>
+        {remainingTime === 0 ? (
+          <p className='status-label'>{statusLabel}</p>
+        ) : (
+          <p className='status-label'>
+            Ongoing: {remainingTime} min
+          </p>
+        )}
       </div>
     </div>
   );

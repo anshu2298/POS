@@ -67,10 +67,7 @@ const OrderCard = ({
 
       <OrderItems items={items} />
       <div className='status'>
-        <StatusButton
-          status={status}
-          serviceType={serviceType}
-        />
+        <StatusButton status={status} />
       </div>
     </div>
   );

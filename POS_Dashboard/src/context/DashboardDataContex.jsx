@@ -14,10 +14,34 @@ export const DashboardDataProvider = ({ children }) => {
   const [timeFilter, setTimeFilter] = useState("weekly");
   const [orderStats, setOrderStats] = useState([]);
   const [chefOrders, setChefOrders] = useState([
-    { id: 1, name: "Manesh", orders: 0, duration: 0 },
-    { id: 2, name: "Pritam", orders: 0, duration: 0 },
-    { id: 3, name: "Yash", orders: 0, duration: 0 },
-    { id: 4, name: "Tenzen", orders: 0, duration: 0 },
+    {
+      id: 1,
+      name: "Manesh",
+      orders: 0,
+      duration: 0,
+      orderIds: [],
+    },
+    {
+      id: 2,
+      name: "Pritam",
+      orders: 0,
+      duration: 0,
+      orderIds: [],
+    },
+    {
+      id: 3,
+      name: "Yash",
+      orders: 0,
+      duration: 0,
+      orderIds: [],
+    },
+    {
+      id: 4,
+      name: "Tenzen",
+      orders: 0,
+      duration: 0,
+      orderIds: [],
+    },
   ]);
 
   // Fetch and distribute incoming orders to chefs with least prep time
