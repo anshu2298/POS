@@ -31,7 +31,7 @@ const OrderSummary = ({
     labels: orderStats.map((stat) => stat.type),
     datasets: [
       {
-        data: orderStats.map((stat) => stat.percentage),
+        data: orderStats.map((stat) => stat.count),
         backgroundColor: ["#828282", "#2c2c2c", "#5b5b5b"],
         borderWidth: 0,
       },

@@ -64,6 +64,7 @@ const Checkout = () => {
 
     try {
       let assignedTable = null;
+      let assignedTableId = null;
 
       if (
         orderOption === "dine-in" &&
@@ -103,6 +104,7 @@ const Checkout = () => {
         }
 
         assignedTable = suitableTable.name;
+        assignedTableId = suitableTable._id;
       }
 
       // 4. Create customer if not exists
@@ -140,6 +142,8 @@ const Checkout = () => {
         }
       }
 
+      console.log("Assigned Table ID:", assignedTableId);
+
       // 5. Create Order
       const formattedOrder = {
         orderNumber: Math.floor(
@@ -157,6 +161,8 @@ const Checkout = () => {
         price: (subtotal + deliveryCharge + taxes).toFixed(
           2
         ),
+        tableId: assignedTableId,
+
         status: "Processing",
         serviceType:
           orderOption === "dine-in"

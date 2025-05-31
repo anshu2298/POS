@@ -1,7 +1,8 @@
 import { FaChair } from "react-icons/fa6";
 import { FaBook } from "react-icons/fa";
-import { IoStatsChartSharp } from "react-icons/io5";
+
 import { RiDashboardFill } from "react-icons/ri";
+import { MdRestaurantMenu } from "react-icons/md";
 import "./Sidebar.css";
 
 const Sidebar = ({ activeMenu, setActiveMenu }) => {
@@ -22,9 +23,9 @@ const Sidebar = ({ activeMenu, setActiveMenu }) => {
       icon: <FaBook />,
     },
     {
-      id: "customers",
-      label: "Customers",
-      icon: <IoStatsChartSharp />,
+      id: "menu",
+      label: "Menu",
+      icon: <MdRestaurantMenu />,
     },
   ];
 

@@ -11,6 +11,7 @@ const createOrder = async (req, res) => {
       serviceType,
       duration,
       items,
+      tableId,
     } = req.body;
 
     if (
@@ -35,6 +36,7 @@ const createOrder = async (req, res) => {
       serviceType,
       duration,
       items,
+      tableId,
     });
 
     res.status(201).json({
@@ -111,8 +113,35 @@ const getIncomingOrders = async (req, res) => {
   }
 };
 
+const updateOrderStatus = async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  try {
+    const updatedOrder = await OrderModel.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    );
+
+    if (!updatedOrder) {
+      return res
+        .status(404)
+        .json({ error: "Order not found" });
+    }
+
+    res.status(200).json(updatedOrder);
+  } catch (error) {
+    console.error("Failed to update order status:", error);
+    res
+      .status(500)
+      .json({ error: "Internal server error" });
+  }
+};
+
 module.exports = {
   createOrder,
   getOrders,
   getIncomingOrders,
+  updateOrderStatus,
 };

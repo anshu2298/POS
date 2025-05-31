@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Dashboard from "./components/layouts/Dashboard/Dashboard";
 import Orders from "./components/layouts/Orders/Orders";
 import Tables from "./components/layouts/Tables/Tables";
+import Menu from "./components/layouts/Menu/Menu";
 
 const App = () => {
   const [activeMenu, setActiveMenu] = useState("dashboard");
@@ -17,6 +18,7 @@ const App = () => {
         {activeMenu === "dashboard" && <Dashboard />}
         {activeMenu === "tables" && <Tables />}
         {activeMenu === "orders" && <Orders />}
+        {activeMenu === "menu" && <Menu />}
       </main>
     </div>
   );

@@ -4,14 +4,14 @@ import {
   useEffect,
   useState,
 } from "react";
-
+import { API_PATHS } from "../utils/apiPaths";
 const DashboardDataContext = createContext();
 
 export const DashboardDataProvider = ({ children }) => {
   const [orders, setOrders] = useState([]);
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [timeFilter, setTimeFilter] = useState("daily");
+  const [timeFilter, setTimeFilter] = useState("weekly");
   const [orderStats, setOrderStats] = useState([]);
   const [chefOrders, setChefOrders] = useState([
     { id: 1, name: "Manesh", orders: 0, duration: 0 },
@@ -24,7 +24,7 @@ export const DashboardDataProvider = ({ children }) => {
   const fetchIncomingOrders = async () => {
     try {
       const res = await fetch(
-        "http://localhost:3000/api/order/getPrepTime"
+        API_PATHS.ORDERS.GET_PREP_TIME
       );
       const incomingOrders = await res.json();
 
@@ -58,9 +58,7 @@ export const DashboardDataProvider = ({ children }) => {
   // Fetch all orders
   const fetchOrders = async () => {
     try {
-      const res = await fetch(
-        "http://localhost:3000/api/order/get"
-      );
+      const res = await fetch(API_PATHS.ORDERS.GET);
       const data = await res.json();
       setOrders(data);
     } catch (error) {
@@ -71,9 +69,7 @@ export const DashboardDataProvider = ({ children }) => {
   // Fetch all clients
   const fetchClients = async () => {
     try {
-      const res = await fetch(
-        "http://localhost:3000/api/customer/get"
-      );
+      const res = await fetch(API_PATHS.CUSTOMERS.GET);
       const data = await res.json();
       setClients(data);
     } catch (error) {
@@ -85,7 +81,7 @@ export const DashboardDataProvider = ({ children }) => {
   const fetchOrderStats = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/order/get?filter=${
+        `${API_PATHS.ORDERS.GET}?filter=${
           timeFilter || "daily"
         }`
       );
@@ -101,10 +97,20 @@ export const DashboardDataProvider = ({ children }) => {
 
       data.forEach((order) => {
         const type = order.serviceType;
+
+        // Count service types
         if (
           Object.prototype.hasOwnProperty.call(counts, type)
         ) {
           counts[type]++;
+        }
+
+        // Count served orders only for Dine In orders that are Done
+        if (
+          order.status === "Done" &&
+          order.serviceType === "Dine In"
+        ) {
+          counts.Served++;
         }
       });
 

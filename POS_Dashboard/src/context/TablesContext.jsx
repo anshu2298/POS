@@ -5,6 +5,7 @@ import React, {
   useContext,
   useEffect,
 } from "react";
+import { API_PATHS } from "../utils/apiPaths";
 
 const TablesContext = createContext();
 
@@ -38,7 +39,7 @@ export const TablesProvider = ({ children }) => {
   // ✅ Add a new table
   const addTable = async (newTable) => {
     try {
-      const res = await fetch(`${API_BASE}/add`, {
+      const res = await fetch(API_PATHS.TABLES.ADD, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newTable),
@@ -57,7 +58,7 @@ export const TablesProvider = ({ children }) => {
   // ✅ Delete a table by ID
   const deleteTable = async (id) => {
     try {
-      const res = await fetch(`${API_BASE}/${id}`, {
+      const res = await fetch(API_PATHS.TABLES.DELETE(id), {
         method: "DELETE",
       });
 

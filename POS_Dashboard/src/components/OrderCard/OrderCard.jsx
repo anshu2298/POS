@@ -10,8 +10,9 @@ const OrderCard = ({
   items,
   status,
   serviceType,
-  onStatusChange,
+
   duration,
+  remainingTime,
 }) => {
   const getCardClass = () => {
     if (serviceType === "Take Away") {
@@ -61,6 +62,7 @@ const OrderCard = ({
         statusLabel={statusInfo.label}
         statusType={statusInfo.type}
         count={items.length}
+        remainingTime={remainingTime}
       />
 
       <OrderItems items={items} />
@@ -68,7 +70,6 @@ const OrderCard = ({
         <StatusButton
           status={status}
           serviceType={serviceType}
-          onClick={onStatusChange}
         />
       </div>
     </div>

@@ -16,6 +16,11 @@ const orderSchema = new mongoose.Schema(
       type: String,
       default: null,
     },
+    tableId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Table",
+      default: null,
+    },
     time: {
       type: String,
       required: true,
