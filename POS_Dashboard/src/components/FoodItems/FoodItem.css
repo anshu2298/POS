@@ -3,6 +3,9 @@
   border-radius: 12px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -23,8 +26,8 @@
 
 .food-text {
   display: flex;
-  justify-content: space-between;
-  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
 }
 
 .food-name {

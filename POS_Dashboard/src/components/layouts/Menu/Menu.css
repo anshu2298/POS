@@ -16,3 +16,12 @@
   grid-template-columns: repeat(7, 1fr);
   gap: 12px;
 }
+
+.menu {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
+}

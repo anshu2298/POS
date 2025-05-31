@@ -1,10 +1,11 @@
 import { IoMdSearch } from "react-icons/io";
 import "./Menu.css";
 import FoodItem from "../../FoodItems/FoodItem.jsx";
-import { getAllMenuItems } from "../../../../data.js";
+import { searchMenuItems } from "../../../../data.js";
+import { useState } from "react";
 const Menu = () => {
-  const items = getAllMenuItems();
-  const onAddToCart = () => {};
+  const [searchItem, setSearchItem] = useState("");
+  const items = searchMenuItems(searchItem);
   return (
     <>
       <div className='card filter-box'>
@@ -12,6 +13,8 @@ const Menu = () => {
           className='filter-input'
           type='text'
           placeholder='Search items...'
+          value={searchItem}
+          onChange={(e) => setSearchItem(e.target.value)}
         />
         <IoMdSearch
           size={50}
@@ -24,7 +27,6 @@ const Menu = () => {
             <FoodItem
               key={item.id}
               {...item}
-              onAddToCart={onAddToCart}
             />
           ))}
         </div>

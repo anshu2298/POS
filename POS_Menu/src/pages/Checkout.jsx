@@ -16,6 +16,7 @@ const Checkout = () => {
     useCart();
   const [orderOption, setOrderOption] = useState("dine-in");
   const [userDetails, setUserDetails] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleUserDetailsSubmit = (Details) => {
     console.log("Received from UserDetails:", Details);
@@ -61,6 +62,8 @@ const Checkout = () => {
       toast.error("Your cart is empty!");
       return;
     }
+
+    setLoading(true);
 
     try {
       let assignedTable = null;
@@ -189,6 +192,7 @@ const Checkout = () => {
 
       console.log("Order created:", createdOrder);
       setCartItems([]);
+      setUserDetails({});
       toast.success("Order placed successfully!");
       toast.success("Assigned Table: " + assignedTable);
     } catch (error) {
@@ -196,6 +200,8 @@ const Checkout = () => {
       toast.error(
         "Failed to complete order. Please try again."
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -240,8 +246,17 @@ const Checkout = () => {
             estimatedTime={getTotalPrepTime().toString()}
           />
         )}
-
-        <SwipeButton onComplete={handleOrderComplete} />
+        {loading ? (
+          <div className='loading-overlay'>
+            <div className='spinner' />
+            <p>Placing your order...</p>
+          </div>
+        ) : (
+          <SwipeButton
+            onComplete={handleOrderComplete}
+            disabled={cartItems.length === 0}
+          />
+        )}
       </div>
     </div>
   );

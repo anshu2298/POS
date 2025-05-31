@@ -20,7 +20,7 @@ const FoodItem = ({
           <h3 className='food-name'>{name}</h3>
           <p className='food-price'>₹ {price}</p>
         </div>
-        <div className='food-actions'>
+        {/* <div className='food-actions'>
           <button
             className='button'
             onClick={() => onAddToCart(id)}
@@ -31,7 +31,7 @@ const FoodItem = ({
           <button className='button'>
             <MdDelete size={20} />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import "./SwipeButton.css";
 
-const SwipeButton = ({ onComplete }) => {
+const SwipeButton = ({ onComplete, disabled }) => {
   const [swiping, setSwiping] = useState(false);
   const [position, setPosition] = useState(0);
   const buttonWidth = useRef(0);
@@ -11,6 +11,7 @@ const SwipeButton = ({ onComplete }) => {
   const container = useRef(null);
 
   const handleTouchStart = (e) => {
+    if (disabled) return;
     if (container.current && button.current) {
       buttonWidth.current = button.current.offsetWidth;
       containerWidth.current =
@@ -21,6 +22,7 @@ const SwipeButton = ({ onComplete }) => {
   };
 
   const handleTouchMove = (e) => {
+    if (disabled) return;
     if (!swiping) return;
 
     const currentX = e.touches[0].clientX;
@@ -44,6 +46,7 @@ const SwipeButton = ({ onComplete }) => {
   };
 
   const handleTouchEnd = () => {
+    if (disabled) return;
     if (!swiping) return;
 
     if (
@@ -69,6 +72,11 @@ const SwipeButton = ({ onComplete }) => {
     <div
       className='swipe-container'
       ref={container}
+      style={{
+        opacity: disabled ? 0.5 : 1,
+        pointerEvents: disabled ? "none" : "auto",
+        transition: "opacity 0.3s ease",
+      }}
     >
       <div
         className='swipe-button'
