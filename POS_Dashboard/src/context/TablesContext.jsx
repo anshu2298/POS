@@ -16,13 +16,11 @@ export const TablesProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_BASE = "http://localhost:3000/api/table"; // Update if needed
-
   // ✅ Fetch all tables
   const fetchTables = async () => {
     try {
       setLoading(true);
-      const res = await fetch(API_BASE);
+      const res = await fetch(API_PATHS.TABLES.GET);
       if (!res.ok)
         throw new Error("Failed to fetch tables");
 
