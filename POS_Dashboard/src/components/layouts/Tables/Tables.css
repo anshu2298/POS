@@ -166,3 +166,7 @@
 .tablepage-card::-webkit-scrollbar {
   display: none;
 }
+
+.delete-icon {
+  border: none;
+}

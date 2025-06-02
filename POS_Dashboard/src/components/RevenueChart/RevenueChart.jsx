@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { RiArrowDownSLine } from "react-icons/ri";
+
 import {
   LineChart,
   Line,
@@ -24,8 +24,6 @@ const weekdays = [
 
 const RevenueChart = ({ orders }) => {
   const [revenueData, setRevenueData] = useState([]);
-  // const [isDropdownOpen, setIsDropdownOpen] =
-  //   useState(false);
 
   useEffect(() => {
     const fetchRevenue = async (orders) => {
@@ -39,8 +37,23 @@ const RevenueChart = ({ orders }) => {
         Sat: 0,
       };
 
-      orders.forEach((order) => {
-        const day = new Date(order.createdAt).getDay();
+      // Get current date
+      const now = new Date();
+
+      // Get last Sunday (start of the week)
+      const dayOfWeek = now.getDay(); // 0 (Sun) - 6 (Sat)
+      const startOfWeek = new Date(now);
+      startOfWeek.setDate(now.getDate() - dayOfWeek);
+      startOfWeek.setHours(0, 0, 0, 0); // clear time
+
+      // Filter orders created in the current week
+      const weeklyOrders = orders.filter((order) => {
+        const createdAt = new Date(order.createdAt);
+        return createdAt >= startOfWeek;
+      });
+
+      weeklyOrders.forEach((order) => {
+        const day = new Date(order.createdAt).getDay(); // 0-6
         const weekday = weekdays[day];
         revenueMap[weekday] += Number(order.price);
       });

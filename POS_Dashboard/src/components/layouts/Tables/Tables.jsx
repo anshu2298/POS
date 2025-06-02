@@ -8,7 +8,8 @@ import { useTables } from "../../../context/TablesContext";
 
 const Tables = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { tables, addTable, deleteTable } = useTables();
+  const { tables, addTable, deleteTable, loading } =
+    useTables();
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [newTable, setNewTable] = useState({
@@ -68,13 +69,17 @@ const Tables = () => {
               className='table-box'
             >
               <div className='tablebox-header'>
-                <RiDeleteBinLine
-                  size={20}
+                <button
                   className='delete-icon'
                   onClick={() =>
                     handleDeleteTable(table._id)
                   }
-                />
+                >
+                  <RiDeleteBinLine
+                    size={20}
+                    className='delete-icon'
+                  />
+                </button>
               </div>
               <div className='tablebox-content'>
                 <span className='tablebox-label'>
@@ -148,7 +153,12 @@ const Tables = () => {
                   >
                     Cancel
                   </button>
-                  <button type='submit'>Create</button>
+                  <button
+                    disabled={true}
+                    type='submit'
+                  >
+                    Create
+                  </button>
                 </div>
               </form>
             </div>

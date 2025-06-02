@@ -6,7 +6,7 @@ import React, {
   useEffect,
 } from "react";
 import { API_PATHS } from "../utils/apiPaths";
-
+import toast from "react-hot-toast";
 const TablesContext = createContext();
 
 export const useTables = () => useContext(TablesContext);
@@ -37,6 +37,7 @@ export const TablesProvider = ({ children }) => {
   // ✅ Add a new table
   const addTable = async (newTable) => {
     try {
+      setLoading(true);
       const res = await fetch(API_PATHS.TABLES.ADD, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -47,15 +48,20 @@ export const TablesProvider = ({ children }) => {
 
       const savedTable = await res.json();
       setTables((prev) => [...prev, savedTable]);
+      toast.success("Table Added..!");
     } catch (err) {
       console.error("Error adding table:", err);
+      toast.error("Table creation falied.!");
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   // ✅ Delete a table by ID
   const deleteTable = async (id) => {
     try {
+      setLoading(true);
       const res = await fetch(API_PATHS.TABLES.DELETE(id), {
         method: "DELETE",
       });
@@ -66,9 +72,12 @@ export const TablesProvider = ({ children }) => {
       setTables((prev) =>
         prev.filter((table) => table._id !== id)
       );
+      toast.success("Table Deleted");
     } catch (err) {
       console.error("Error deleting table:", err);
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 

@@ -145,8 +145,6 @@ const Checkout = () => {
         }
       }
 
-      console.log("Assigned Table ID:", assignedTableId);
-
       // 5. Create Order
       const formattedOrder = {
         orderNumber: Math.floor(
