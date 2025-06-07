@@ -45,8 +45,8 @@ const Home = () => {
           items={foodItems}
           onAddToCart={addToCart}
         />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };

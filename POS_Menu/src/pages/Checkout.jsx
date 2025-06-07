@@ -18,11 +18,6 @@ const Checkout = () => {
   const [userDetails, setUserDetails] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const handleUserDetailsSubmit = (Details) => {
-    console.log("Received from UserDetails:", Details);
-    setUserDetails(Details);
-  };
-
   const getTotalPrepTime = () => {
     if (cartItems.length === 0) return 0;
     return Math.max(
@@ -190,7 +185,7 @@ const Checkout = () => {
 
       console.log("Order created:", createdOrder);
       setCartItems([]);
-      setUserDetails({});
+
       toast.success("Order placed successfully!");
       toast.success("Assigned Table: " + assignedTable);
     } catch (error) {
@@ -200,6 +195,7 @@ const Checkout = () => {
       );
     } finally {
       setLoading(false);
+      setUserDetails({});
     }
   };
 
@@ -231,7 +227,8 @@ const Checkout = () => {
         />
         <UserDetails
           orderOption={orderOption}
-          onFormSubmit={handleUserDetailsSubmit}
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
         />
 
         {orderOption === "dine-in" ? (

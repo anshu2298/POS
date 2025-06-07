@@ -3,7 +3,7 @@ import { IoIosSave } from "react-icons/io";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-const UserDetails = ({ orderOption, onFormSubmit }) => {
+const UserDetails = ({ orderOption, setUserDetails }) => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
@@ -18,7 +18,7 @@ const UserDetails = ({ orderOption, onFormSubmit }) => {
       occupancy:
         orderOption === "dine-in" ? occupancy : null,
     };
-    onFormSubmit(formData);
+    setUserDetails(formData);
     toast.success("User details saved!");
     setIsSubmitted(true);
   };
