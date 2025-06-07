@@ -10,9 +10,18 @@
 }
 
 .graph-container {
+  height: 100%;
   margin: 10px 10px 20px 10px;
   padding: 16px;
   background-color: white;
   border-radius: 12px;
   border: solid #d9d9d9;
+}
+
+.loader-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
 }
