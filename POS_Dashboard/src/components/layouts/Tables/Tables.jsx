@@ -154,7 +154,7 @@ const Tables = () => {
                     Cancel
                   </button>
                   <button
-                    disabled={true}
+                    disabled={loading}
                     type='submit'
                   >
                     Create
